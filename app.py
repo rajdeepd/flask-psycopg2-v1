@@ -39,26 +39,6 @@ def contacts():
         print e
         return []
 
-@app.route('/url', methods=['POST','GET'])
-def url():
-    #return "hi"
-    app.logger.info('****')
-    app.logger.error('Entered /url')
-    errors = []
-    results = {'A':'1','B':'2'}
-    if request.method == "POST":
-        # get url that the user has entered
-        try:
-            url = request.form['url-box']
-            app.logger.info('url:' + url)
-            r = requests.get(url)
-            app.logger.info('r.text ' + r.text)
-        except:
-            app.logger.error('An error occurred')
-            errors.append(
-                "Unable to get URL. Please make sure it's valid and try again.**"
-            )
-    return render_template('result.html', errors=errors, results=results)
     
 if __name__ == '__main__':
     handler = RotatingFileHandler('foo.log', maxBytes=10000, backupCount=10)
