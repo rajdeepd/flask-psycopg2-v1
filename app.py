@@ -41,7 +41,7 @@ def contacts():
 
         return render_template('template.html',  results=my_list)
     except Exception as e:
-        print(e))
+        print(e)
         return []
 
     
